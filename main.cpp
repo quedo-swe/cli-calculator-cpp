@@ -25,7 +25,7 @@ bool partition(std::string example, std::vector<double>& nums, std::vector<char>
 		}
 		else if (example[p] == '+' || example[p] == '-' || example[p] == '*' || example[p] == '/')
 		{
-			if (p==0 || (act.size() == nums.size()))
+			if (p==0 || act.size() == nums.size())
 			{
 				std::cerr << "Invalid expression\n";
 				return false;
@@ -43,7 +43,8 @@ bool partition(std::string example, std::vector<double>& nums, std::vector<char>
 }
 bool processMulDiv(std::vector<double>& nums, std::vector<char>& act)
 {
-	for (int p = 0; p < act.size(); ) {
+	for (int p = 0; p < act.size(); )
+	{
 		if (act[p] == '*' || act[p] == '/')
 		{
 			double res = 0;
@@ -69,7 +70,8 @@ bool processMulDiv(std::vector<double>& nums, std::vector<char>& act)
 }
 void processAddSub(std::vector<double>& nums, std::vector<char>& act)
 {
-	for (int p = 0; p < act.size(); ) {
+	for (int p = 0; p < act.size(); )
+	{
 		if (act[p] == '+' || act[p] == '-')
 		{
 			double res = 0;
@@ -96,12 +98,17 @@ int main()
 	std::vector<char> act;
 	if (partition(example, nums, act))
 	{
-		if (nums.empty()) {
+		if (nums.empty())
+		{
 			std::cerr << "Invalid expression\n";
 			return 0;
 		}
-		if (nums.size() == act.size() + 1) { 
-			if (!processMulDiv(nums, act)) return 0;
+		if (nums.size() == act.size() + 1)
+		{
+			if (!processMulDiv(nums, act))
+			{
+				return 0;
+			}
 			processAddSub(nums, act);
 			std::cout << "Result:" << nums[0] << std::endl;
 		}
