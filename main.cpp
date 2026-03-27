@@ -100,7 +100,7 @@ int main()
 			std::cerr << "Invalid expression\n";
 			return 0;
 		}
-		if (nums.size() == act.size() + 1 /*&& (example[0] >= '0' && example[0] <= '9')*/) { ///problem 1 " 123+5" or "      145+5"
+		if (nums.size() == act.size() + 1) { 
 			if (!processMulDiv(nums, act)) return 0;
 			processAddSub(nums, act);
 			std::cout << "Result:" << nums[0] << std::endl;
